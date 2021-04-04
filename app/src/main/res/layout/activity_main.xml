@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="UserModel"
+            type="com.example.mvvm.viewmodel.UserModel" />
+        <variable
+            name="UserLoginEvents"
+            type="com.example.mvvm.commands.UserLoginEvents" />
+    </data>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical">
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textColor="@color/black"
+         android:text="@{UserModel.email}"/>
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textSize="18sp"
+         android:text="DataBinding and ListViewBinding">
+
+     </TextView>
+     <EditText
+         android:layout_width="match_parent"
+         android:id="@+id/emailEt"
+         android:text="@={UserModel.email}"
+         android:hint="@{UserModel.emailHint}"
+         android:layout_height="wrap_content"/>
+
+     <EditText
+         android:layout_width="match_parent"
+         android:text="@={UserModel.password}"
+         android:hint="@{UserModel.passwordHint}"
+         android:layout_height="wrap_content"
+         android:id="@+id/passwordEt"/>
+
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Login"
+         android:onClick="@{(v)->UserLoginEvents.onClickedLoginBtn()}"
+         android:id="@+id/loginBtn"/>
+
+
+     <ListView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/listView"/>
+
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="RecyclearViewBinding"
+         android:onClick="gotoRecyclearViewBinding"
+         android:id="@+id/recyclearViewBinding">
+     </Button>
+
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="BaseObservableBinding"
+         android:onClick="gotoBaseObservableBinding"
+         android:id="@+id/BaseObservableBinding">
+     </Button>
+
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Retrofit with mvvm"
+         android:onClick="gotoMovie"
+         android:id="@+id/retrofitWithMVVM">
+     </Button>
+ </LinearLayout>
+
+
+
+</layout>
